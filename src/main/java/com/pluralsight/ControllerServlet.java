@@ -98,6 +98,12 @@ public class ControllerServlet extends HttpServlet {
 	
 	private void deleteBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		int id = Integer.parseInt(request.getParameter("id"));
+		bookDAO.deleteBook(id);
+		response.sendRedirect("list");		
+	}
+	
+	private void updateBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
 		String title = request.getParameter("booktitle");
 		String author = request.getParameter("bookauthor");
 		float price = Float.parseFloat(request.getParameter("bookprice"));
@@ -106,10 +112,6 @@ public class ControllerServlet extends HttpServlet {
 		
 		bookDAO.updateBook(book);
 		response.sendRedirect("list");		
-	}
-	
-	private void updateBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 	}
 	
 	private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
