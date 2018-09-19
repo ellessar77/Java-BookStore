@@ -17,7 +17,7 @@
 	<c:if test="${book != null}">
 	<form name="book_form" method="post" action="update">
 	<h2>
-        Edit Book Form.
+        Edit Book Form
     </h2>
 	<input type="hidden" name="id" value="<c:out value='${book.id}' />" />
 	<p><label>Title:</label>
